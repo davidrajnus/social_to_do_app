@@ -3,7 +3,11 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
+        <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar_url(:thumb)%>
+        <% else %>
         <%= gravatar_for @user %>
+        <%end%>
         <%= @user.name %>
       </h1>
     </section>
