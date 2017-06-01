@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'tasks/index'
+
+  get 'tasks/new'
+
+  get 'tasks/show'
+
+  get 'tasks/edit'
+
+  get 'tasks/update'
+
+  get 'tasks/destroy'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -15,4 +27,5 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   
   resources :users
+  resources :tasks
 end
