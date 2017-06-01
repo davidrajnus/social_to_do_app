@@ -1,2 +1,20 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<% provide(:title, 'Add new task') %>
+<h1>New Task</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for([current_user, @task]) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :complete_by %>
+      <%= f.date_field :complete_by, class: 'form-control'%>
+
+      <%= f.submit "Add task", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

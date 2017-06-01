@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :tasks
+
   mount_uploader :avatar, AvatarUploader
   has_many :authentications, dependent: :destroy
 

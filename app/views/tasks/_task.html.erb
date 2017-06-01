@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-8">
+<li id="task-<%= task.id %>">
+
+<span class="user"><%= link_to task.user.name, task.user %></span>
+  <span class="content"><%= task.title %></span>
+  <span class="timestamp">
+    Due on <%= task.complete_by %>.
+  </span>
+</li>
+</div>
+
+  <% if !task.status %>
+  <div class="col-md-2">
+    <%= form_for [current_user, task] do |f| %>
+    <%= f.check_box :status %>
+    </div>
+    <div class="col-md-2">
+    <%= f.submit "Update" %>
+    </div>
+    <%end%>
+  <%else%>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+      <h3><span class="label label-default">Completed</span></h3>
+    </div>
+    <%end%>
+
+</div>
+
+

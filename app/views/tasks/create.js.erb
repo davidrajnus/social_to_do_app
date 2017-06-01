@@ -1,0 +1,4 @@
+console.log("create.js.erb file");
+$('#new_task').remove();
+$('#new_link').show();
+$('.tasks').append('<%= j render(@task) %>');

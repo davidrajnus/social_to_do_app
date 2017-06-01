@@ -3,8 +3,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
     create_table :tasks do |t|
       t.belongs_to :user
       t.string :title
-      t.text :email
-      t.boolean :status
+      t.boolean :status, default: false
       t.date :complete_by
 
       t.timestamps
