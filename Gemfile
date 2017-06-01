@@ -40,6 +40,12 @@ gem 'faker'
 
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+
+#for facebook log_in function
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'figaro'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
