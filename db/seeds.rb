@@ -6,18 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "admin",
-             email: "admin@admin.com",
-             password:              "12345678",
-             password_confirmation: "12345678",
-             admin: true)
+# User.create!(name:  "admin",
+#              email: "admin@admin.com",
+#              password:              "12345678",
+#              password_confirmation: "12345678",
+#              admin: true)
 
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@test.com"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password)
-end
+# 99.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@test.com"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                password:              password,
+#                password_confirmation: password)
+# end
+
+# users = User.order(:created_at).take(6)
+# 50.times do
+#   content = Faker::Lorem.sentence(5)
+#   users.each { |user| user.posts.create!(content: content) }
+# end

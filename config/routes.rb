@@ -32,4 +32,6 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
+  resources :posts, only: [:create, :destroy]
+
 end

@@ -34,7 +34,15 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update_attributes(status: params[:task][:status])
     # params[:task][:status]
-    redirect_to user_tasks_path
+
+    post_content = "#{current_user.name} has just completed a task: #{@task.title}"
+    @post = current_user.posts.build(content: post_content)
+        if @post.save
+          flash[:success] = "Task Updated and Post created!"
+          redirect_to user_tasks_path
+        else
+          render 'static_pages/home'
+        end
   end
 
   def destroy

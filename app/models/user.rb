@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :tasks
+  has_many :posts, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
   has_many :authentications, dependent: :destroy
@@ -36,5 +37,9 @@ class User < ApplicationRecord
   def fb_token
     x = self.authentications.find_by(provider: 'facebook')
     return x.token unless x.nil?
+  end
+
+  def feed
+    Post.where("user_id = ?", id)
   end
 end
