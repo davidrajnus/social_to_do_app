@@ -42,4 +42,12 @@ class User < ApplicationRecord
   def feed
     Post.where("user_id = ?", id)
   end
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end
