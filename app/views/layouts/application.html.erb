@@ -6,10 +6,25 @@
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <p class="bg-info center">Daily Forecast</p>
+    <div class="row">
+      <% daily_weather.each do |day| %>
+      <div class="col-md-2 center">
+        <strong><%= Time.at(day.time).strftime('%A') %></strong><br>       
+        <%= day.summary %><br>
+        <figure class="icons">
+          <canvas class="<%= day.icon%>" width="64" height="64">
+          </canvas>
+        </figure>
+      </div>
+      <% end %>
+    </div>
+
     <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
