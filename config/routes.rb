@@ -25,13 +25,21 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  
+
   resources :users
 
-  resources :users do 
+  resources :users do
     resources :tasks
   end
 
   resources :posts, only: [:create, :destroy]
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
 
 end
