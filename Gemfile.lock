@@ -378,6 +378,8 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simple_calendar (2.2.5)
+      rails (>= 3.0)
     slop (3.6.0)
     sorcerer (1.0.2)
     spring (2.0.2)
@@ -447,6 +449,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
+  simple_calendar
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

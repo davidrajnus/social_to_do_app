@@ -11,7 +11,7 @@ RSpec.describe "Tasks", type: :request do
       end
       
       it "supports js", :js => true do
-        user_tasks_path
+        visit user_tasks_path(user)
         click_link "Create Now!"
         page.should have_content("Title")
       end
@@ -19,7 +19,7 @@ RSpec.describe "Tasks", type: :request do
     
     describe "POST /tasks" do
       it "creates task" do
-        visit new_user_task_path
+        visit new_user_task_path(user)
         fill_in "Title", :with => "mow lawn"
         click_button "Add task"
         # save_and_open_page
